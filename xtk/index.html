@@ -1,0 +1,42 @@
+<!--This is not my tutorial, credits to https://github.com/cornerstonejs/cornerstone/wiki -->
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>CS460.org Assignment 2</title>
+    <style>
+      body {
+        background-color:#000;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden !important; 
+      }
+    </style>
+
+
+    <script type="text/javascript" src="https://get.goXTK.com/xtk_edge.js"></script>
+
+    <script type="text/javascript">
+      window.onload = function() {
+          // create a new 3d renderer
+          r = new X.renderer3D();
+          r.init();
+
+          // New volume
+          var v = new X.volume();
+          v.file = '/xtk/test.nii.gz';
+
+          var _image = v.image;
+
+          console.log(_image)
+
+          r.add(v);
+
+          r.render();
+      }
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
