@@ -48,6 +48,7 @@ reader
   .then(() => {
     const data = reader.getOutputData();
     const dataRange = data.getPointData().getScalars().getRange();
+    console.log(data)
     const firstIsoValue = (dataRange[0] + dataRange[1]) / 3;
 
     const el = document.querySelector('.isoValue');
