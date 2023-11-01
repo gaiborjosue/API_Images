@@ -35,13 +35,13 @@
       nv1.setSliceType(nv1.SliceTypeRender)
       
       nv1.loadVolumes(volumeList1).then(() => {
-        console.log("Pixel test #1 " + nv1.back.dims[1])
-        console.log("Pixel test #2 " + nv1.back.dims[2])
+        console.log("Label map Pixel test #1 " + nv1.back.dims[1])
+        console.log("Label map Pixel test #2 " + nv1.back.dims[2])
         // Log the whole volume
         console.log(nv1.back.img)
 
-        // log the pixel value
-        console.log(nv1.back.getValue(1, 1, 1))
+        // log the Volume pixel value
+        console.log("Volume pixel value: " + nv1.back.getValue(100, 1000, 100))
 
         // Log the slices pixels
         console.log(nv1.back.img[0])
