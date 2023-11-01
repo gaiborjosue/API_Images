@@ -164,7 +164,7 @@ function init() {
 // init threeJS...
 init();
 
-var file = '/data/test.nii.gz';
+var file = 'test.nii.gz';
 
 var loader = new AMI.VolumeLoader(threeD);
 loader.load(file).then(function() {
