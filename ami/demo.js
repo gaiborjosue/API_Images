@@ -166,6 +166,7 @@ init();
 
 var file = 'test.nii.gz';
 
+
 var loader = new AMI.VolumeLoader(threeD);
 loader.load(file).then(function() {
     var series = loader.data[0].mergeSeries(loader.data)[0];
