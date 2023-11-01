@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daikon Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/daikon@1.2.45/release/current/daikon-min.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            const input = document.getElementById('fileInput');
+            input.addEventListener('change', loadDICOMFile);
+        });
+
+        function loadDICOMFile() {
+            const input = document.getElementById('fileInput');
+            const file = input.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const arrayBuffer = e.target.result;
+                    const data = new DataView(arrayBuffer);
+                    const image = daikon.Series.parseImage(data);
+
+                    if (image) {
+                        const pixelData = image.getInterpretedData();
+                        console.log('Pixel Data:', pixelData);
+                    } else {
+                        console.error('Could not parse DICOM image.');
+                    }
+                }
+                reader.readAsArrayBuffer(file);
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="file" id="fileInput">
+</body>
+</html>
