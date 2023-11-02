@@ -19,6 +19,7 @@
   <script type="text/javascript">
 
     window.onload = (event) => {
+      papaya.Container.startPapaya()
       console.log("Dimensions: ", papayaContainers[0].viewer.screenVolumes[0].volume.header.imageDimensions.xDim, papayaContainers[0].viewer.screenVolumes[0].volume.header.imageDimensions.yDim, papayaContainers[0].viewer.screenVolumes[0].volume.header.imageDimensions.zDim)
 
       console.log("Full Volume (flattened): ", papayaContainers[0].viewer.screenVolumes[0].volume.imageData.data)
