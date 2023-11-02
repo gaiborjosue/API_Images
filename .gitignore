@@ -2,3 +2,7 @@ niivue/
 cornerstone3D/
 # Hide node modules
 node_modules/
+vtk/
+xtk/
+Daikon/
+niivuedemo/

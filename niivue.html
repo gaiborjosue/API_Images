@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Niivue Document</title>
+  </head>
+
+  <body style="font-family: sans-serif">
+    </header>
+    <!-- demo 1 -->
+    <main>
+      <div id="demo1" style="width: 90%; height: 400px">
+        <canvas id="gl1" style="width: 800px; height: 400px"> </canvas>
+      </div>
+    </main>
+
+    <script type="text/javascript" src="https://niivue.github.io/niivue/features/niivue.umd.js"></script>
+    
+    <script>
+
+      const url = "https://haehn.github.io/VIZBI/daniel.nii";
+      var volumeList1 = [
+        // first item is background image
+        {
+          url: "test.nii.gz", //"./images/RAS.nii.gz", "./images/spm152.nii.gz",
+          colormap: "gray",
+          opacity: 1,
+          visible: true,
+        },
+      ];
+      
+      var nv1 = new niivue.Niivue();
+
+      nv1.attachTo("gl1");
+
+      nv1.setSliceType(nv1.SliceTypeRender)
+      
+      nv1.loadVolumes(volumeList1).then(function () {
+
+        console.log('Volume dimensions:', nv1.back.dims);
+
+        console.log('Full Volume (flattened):', nv1.back.img);
+
+        console.log('Full Volume (3D): %c not yet working', 'color:red'); 
+
+        console.log('Volume pixel access:', nv1.back.getValue(10, 10, 10));
+
+        console.log('Subvolume access: %c not yet working', 'color:red'); 
+      });
+
+      
+
+    </script>
+  </body>
+</html>
