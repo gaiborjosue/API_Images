@@ -39,7 +39,7 @@
       const reader = vtkXMLImageDataReader.newInstance();
 
       reader
-        .setUrl("../data/head-binary-zlib.vti")
+        .setUrl("https://raw.githubusercontent.com/gaiborjosue/API_Images/main/data/test.vti")
 
         .then(function () {
           var imageData = reader.getOutputData();
