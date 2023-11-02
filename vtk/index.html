@@ -51,9 +51,6 @@
 
       actor.setMapper(mapper);
       mapper.setInputData(imageData);
-      renderer.addActor(actor);
-      renderer.resetCamera();
-      renderWindow.render();
 
       // Log pixel data
       const dataArray = imageData.getPointData().getScalars();
@@ -71,7 +68,6 @@
     
 
     renderer.addActor(actor);
-    renderer.getActiveCamera().set({ position: [1, 1, 0], viewUp: [0, 0, -1] });
     renderer.resetCamera();
     renderWindow.render();
   
