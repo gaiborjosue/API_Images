@@ -1,36 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Papaya Viewer</title>
   <script type="text/javascript" src="https://cdn.rawgit.com/rii-mango/Papaya/master/release/current/standard/papaya.js"></script>
-  <link rel="stylesheet" type="text/css" href="papaya.css" />
   <script type="text/javascript">
     
     var params = [];
     params["images"] = ["https://haehn.github.io/VIZBI/daniel.nii"];
-    params["binary"] = true;
+    
 
   </script>
+
+  
 </head>
 <body>
-    <div class="papaya" data-params="params"></div>
+  <div class="papaya" data-params="params"></div>
 
   <script type="text/javascript">
+    // Create funtion to start papaya containers, then .then to console log the volume and imageData
+      setTimeout(()=> {
+        console.log("Dimensions: ", papayaContainers[0].viewer.screenVolumes[0].volume.header.imageDimensions.xDim, papayaContainers[0].viewer.screenVolumes[0].volume.header.imageDimensions.yDim, papayaContainers[0].viewer.screenVolumes[0].volume.header.imageDimensions.zDim)
 
+        console.log("Full Volume (flattened): ", papayaContainers[0].viewer.screenVolumes[0].volume.imageData.data)
 
-    // Initialize the viewer
-    papaya.Container.startPapaya()
-
-    var imageData = papayaContainers[0].viewer.volume.imageData
-    console.log(imageData)
-    // Access pixel data
-    var slice = 50; // Change this to the slice you want to access
-    var pixelData = imageData.data[slice];
-    console.log('Pixel Data for Slice ' + slice + ':', pixelData);
-
+        console.log("Full Volume (3D): ", papayaContainers[0].viewer.screenVolumes[0].volume.imageData.data)
+      }
+      ,2000);
+      
   </script>
+
 </body>
 </html>
