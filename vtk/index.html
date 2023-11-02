@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VTK.js MRI Visualization</title>
   <style>
     body {
@@ -12,6 +9,7 @@
       padding: 0;
       height: 100%;
     }
+
   </style>
   <script type="module">
     import vtkJs from 'https://cdn.skypack.dev/vtk.js'
@@ -27,21 +25,21 @@
 
     import vtkVolumeMapper from 'https://cdn.skypack.dev/vtk.js@29.0.0/Sources/Rendering/Core/VolumeMapper';
 
+
     const fullScreenRenderWindow = vtkFullScreenRenderWindow.newInstance({
-  background: [0, 0, 0],
-});
+      background: [0, 0, 0],
+    });
 
 
     const renderWindow = fullScreenRenderWindow.getRenderWindow();
     const renderer = fullScreenRenderWindow.getRenderer();
     renderWindow.getInteractor().setDesiredUpdateRate(30);
 
-    // Load VTI file
-    const reader = vtkXMLImageDataReader.newInstance();
-
-
     const actor = vtkVolume.newInstance();
     const mapper = vtkVolumeMapper.newInstance();
+
+    // Load VTI file
+    const reader = vtkXMLImageDataReader.newInstance();
 
     reader
     .setUrl('head-binary-zlib.vti')
@@ -55,18 +53,24 @@
       // Log pixel data
       const dataArray = imageData.getPointData().getScalars();
       const pixelData = dataArray.getData();
-      // console.log(imageData.getPointData().getScalars().getTuples(20, 400));
 
-      
-      console.log("Specific Value: ", imageData.getPointData().getArrays()[0].getValue(20000));
-      console.log("Range: ", imageData.getPointData().getArrays()[0].getTuples(2, 400));
+      console.log("Volume Dimensions: ", imageData.getDimensions());
+
       // All 
-      console.log("All the volume data: ", imageData.getPointData().getArrays()[0].getData())
+      console.log("Full Volume (flattened): ", pixelData)
+
+      console.log('Full Volume (3D): %c not yet working', 'color:red'); 
+
+      console.log("Volume pixel access: ", imageData.getPointData().getArrays()[0].getValue(60000));
+
+      console.log('Subvolume access: %c not yet working', 'color:red'); 
+
+      // Get range from the flattened array of data
+      // console.log("Range: ", imageData.getPointData().getArrays()[0].getTuples(2, 400));
+
 
     });
-
     
-
     renderer.addActor(actor);
     renderer.resetCamera();
     renderWindow.render();
