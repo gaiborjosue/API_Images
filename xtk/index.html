@@ -1,59 +1,57 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
-  <title>DEMO</title>
+  <head>
+    <title>DEMO</title>
     <style>
       body {
-        background-color:#000;
+        background-color: #000;
         margin: 0;
         padding: 0;
         height: 100%;
-        overflow: hidden !important; 
+        overflow: hidden !important;
       }
     </style>
 
-
-    <script type="text/javascript" src="https://get.goXTK.com/xtk_edge.js"></script>
+    <script
+      type="text/javascript"
+      src="https://get.goXTK.com/xtk_edge.js"
+    ></script>
 
     <script type="text/javascript">
-      window.onload = function() {
-          // create a new 3d renderer
-          r = new X.renderer3D();
-          r.countainer = "3d"
-          r.init();
+      window.onload = function () {
+        // create a new 3d renderer
+        r = new X.renderer3D();
+        r.init();
 
-          // New volume
-          var v = new X.volume();
-          
-          v.file = 'test.nii.gz';
+        // New volume
+        var v = new X.volume();
 
-          r.add(v);
-         
-          r.render();
+        v.file = "test.nii.gz";
 
-          r.onShowtime = function() {
+        r.add(v);
 
+        r.render();
+
+        r.onShowtime = function () {
           // activate volume rendering
           v.volumeRendering = false;
           v.lowerThreshold = 20;
           v.opacity = 0.8;
 
-          console.log("Volume dimensions: ", v.dimensions)
+          console.log("Volume dimensions: ", v.dimensions);
 
-          console.log("Full Volume (flattened): ", v.image)
+          console.log("Full Volume (flattened): ", v.image);
 
-          console.log('Full Volume (3D): %c not yet working', 'color:red'); 
+          console.log("Full Volume (3D): %c not yet working", "color:red");
 
-          console.log("Volume pixel access: ", v.image[100][100][100])
+          console.log("Volume pixel access: ", v.image[100][100][100]);
 
-          console.log('Subvolume access: %c not yet working', 'color:red'); 
-          
+          console.log("Subvolume access: %c not yet working", "color:red");
+
           volume = v;
-          };
-      }
-
+        };
+      };
     </script>
   </head>
-  <body>
-  </body>
+  <body></body>
 </html>
