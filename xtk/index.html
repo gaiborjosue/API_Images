@@ -33,6 +33,8 @@
         r.render();
 
         r.onShowtime = function () {
+          v.volumeRendering = true;
+          
           console.log("Volume dimensions: ", v.dimensions);
 
           console.log("Full Volume (flattened): ", v.K);
@@ -41,7 +43,7 @@
 
           console.log("Volume pixel access: ", v.image[100][100][100]);
 
-          console.log("Subvolume access: %c not yet working", "color:red");
+          console.log("Subvolume access:", v.image[100][100].slice(0, 100));
 
           volume = v;
         };
