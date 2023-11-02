@@ -17,15 +17,14 @@
   <div class="papaya" data-params="params"></div>
 
   <script type="text/javascript">
-    // Create funtion to start papaya containers, then .then to console log the volume and imageData
-      setTimeout(()=> {
-        console.log("Dimensions: ", papayaContainers[0].viewer.screenVolumes[0].volume.header.imageDimensions.xDim, papayaContainers[0].viewer.screenVolumes[0].volume.header.imageDimensions.yDim, papayaContainers[0].viewer.screenVolumes[0].volume.header.imageDimensions.zDim)
 
-        console.log("Full Volume (flattened): ", papayaContainers[0].viewer.screenVolumes[0].volume.imageData.data)
+    window.onload = (event) => {
+      console.log("Dimensions: ", papayaContainers[0].viewer.screenVolumes[0].volume.header.imageDimensions.xDim, papayaContainers[0].viewer.screenVolumes[0].volume.header.imageDimensions.yDim, papayaContainers[0].viewer.screenVolumes[0].volume.header.imageDimensions.zDim)
 
-        console.log("Full Volume (3D): ", papayaContainers[0].viewer.screenVolumes[0].volume.imageData.data)
-      }
-      ,2000);
+      console.log("Full Volume (flattened): ", papayaContainers[0].viewer.screenVolumes[0].volume.imageData.data)
+
+      console.log("Full Volume (3D): ", papayaContainers[0].viewer.screenVolumes[0].volume.imageData.data)
+    };
       
   </script>
 
