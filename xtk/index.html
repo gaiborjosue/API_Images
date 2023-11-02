@@ -41,11 +41,11 @@
 
           console.log("Volume dimensions: ", v.dimensions)
 
-          console.log("Full Volume (flattened): ", v)
+          console.log("Full Volume (flattened): ", v.image)
 
           console.log('Full Volume (3D): %c not yet working', 'color:red'); 
 
-          console.log("Volume pixel access: ", v.K[3000])
+          console.log("Volume pixel access: ", v.image[100][100][100])
 
           console.log('Subvolume access: %c not yet working', 'color:red'); 
           
