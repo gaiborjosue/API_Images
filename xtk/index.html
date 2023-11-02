@@ -3,7 +3,7 @@
   <head>
     <title>DEMO</title>
     <style>
-      body {
+      html, body {
         background-color: #000;
         margin: 0;
         padding: 0;
@@ -26,23 +26,18 @@
         // New volume
         var v = new X.volume();
 
-        v.file = "test.nii.gz";
+        v.file = "https://haehn.github.io/VIZBI/daniel.nii";
 
         r.add(v);
 
         r.render();
 
         r.onShowtime = function () {
-          // activate volume rendering
-          v.volumeRendering = false;
-          v.lowerThreshold = 20;
-          v.opacity = 0.8;
-
           console.log("Volume dimensions: ", v.dimensions);
 
-          console.log("Full Volume (flattened): ", v.image);
+          console.log("Full Volume (flattened): ", v.K);
 
-          console.log("Full Volume (3D): %c not yet working", "color:red");
+          console.log("Full Volume (3D): ", v.image);
 
           console.log("Volume pixel access: ", v.image[100][100][100]);
 
