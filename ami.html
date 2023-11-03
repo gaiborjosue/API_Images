@@ -35,11 +35,6 @@
     <div id="r3d"></div>
 
     <script type="text/javascript">
-      /* globals Stats, dat, AMI*/
-
-      // standard global letiables
-      var controls;
-
       var renderer;
       var camera;
       var scene;
@@ -83,7 +78,7 @@
           45,
           threeD.offsetWidth / threeD.offsetHeight,
           0.1,
-          100000
+          10000
         );
         camera.position.x = 1500;
         camera.position.y = 400;
@@ -126,7 +121,7 @@
 				// Volume pixel access
 				console.log("Volume pixel access: ", loader.data[0].stack[0].frame[0].getPixelData(100, 100, 100));
 
-				console.log("Subvolume access: %c not yet working", "color:red");
+				// console.log("Subvolume access: %c not yet working", "color:red");
       });
     </script>
   </body>

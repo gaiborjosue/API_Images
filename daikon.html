@@ -18,18 +18,16 @@
 
             if (image) {
               const pixelData = image.getInterpretedData();
-              console.log("Full image pixel data: ", pixelData);
 
-              console.log("Specific pixel data array fetch: ", pixelData[7000]);
+              console.log('Volume dimensions:', image);
 
-              console.log("2D Array columns: ", image.getCols());
-              console.log("2D Array rows: ", image.getRows());
-              console.log(
-                "Raw Data from the 2d image (Array Buffer): ",
-                image.getRawData()
-              );
+              console.log("Full Volume (flattened): ", pixelData);
 
-              console.log("Full Volume (2D): %c not yet working", "color:red");
+              console.log('Full Volume (3D): %c not yet working', 'color:red');
+
+              console.log("Volume pixel access: ", pixelData[10000]);
+
+              console.log('Subvolume access: %c not yet working', 'color:red'); 
             }
           });
       }
