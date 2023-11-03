@@ -1,12 +1,14 @@
 <html>
   <head>
-    <title>AMI - Lesson 06</title>
+    <title>AMI</title>
 
     <style>
       body {
-        font-family: source-code-pro, sans-serif;
-        color: #f9f9f9;
         background-color: #212121;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden !important;
       }
 
       #r3d {
@@ -19,6 +21,7 @@
         height: 100%;
         overflow: hidden;
       }
+
     </style>
     <script
       type="text/javascript"
@@ -28,7 +31,6 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/ami.js/0.0.22/ami.min.js"
     ></script>
-    ##
   </head>
 
   <body>
@@ -114,14 +116,17 @@
 
         ready = true;
 				
-        console.log("Full Volume (flattened): ", loader.data[0].stack[0].rawData[0]);
+        console.log("Full Volume (flattened): ", loader.data[0].stack[0].frame[0].pixelData);
 
-				console.log("Full Volume (3D): ", loader.data[0].stack[0].frame);
+        // console.log("Frame ", loader.data[0].stack[0].frame);
 
-				// Volume pixel access
+        // Full volume 3d
+        console.log('Full Volume (3D): %c not yet working', 'color:red'); 
+
 				console.log("Volume pixel access: ", loader.data[0].stack[0].frame[0].getPixelData(100, 100, 100));
 
-				// console.log("Subvolume access: %c not yet working", "color:red");
+				console.log("Subvolume access: %c not yet working", "color:red");
+
       });
     </script>
   </body>
