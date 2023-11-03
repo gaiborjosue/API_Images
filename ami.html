@@ -113,20 +113,17 @@
 
         loader.free();
 
-        vrHelper = new AMI.VolumeRenderingHelper(series.stack[0]);
+        // get first stack from series
+        var stack = series.stack[0];
+
+        vrHelper = new AMI.VolumeRenderingHelper(stack);
         // scene
         scene.add(vrHelper);
 
         ready = true;
 				
-        console.log("Full Volume (flattened): ", loader.data[0].stack[0].rawData[0]);
-
-				console.log("Full Volume (3D): ", loader.data[0].stack[0].frame);
-
-				// Volume pixel access
-				console.log("Volume pixel access: ", loader.data[0].stack[0].frame[0].getPixelData(100, 100, 100));
-
-				console.log("Subvolume access: %c not yet working", "color:red");
+				console.log(series)
+        console.log(loader);
       });
     </script>
   </body>

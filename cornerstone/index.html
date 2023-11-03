@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <title>Cornerstone3D Example</title>
   <script src="https://unpkg.com/cornerstone3d-core/dist/cornerstone3d.js"></script>
@@ -13,7 +13,7 @@
       const viewport = renderingEngine.createViewport({ element });
       const volumeLoader = new VolumeLoader(renderingEngine);
 
-    const volume = await volumeLoader.load('test.nii.gz');
+    const volume = await volumeLoader.load('https://haehn.github.io/VIZBI/daniel.nii');
     viewport.setVolumes([{ volume }]);
     render();
 

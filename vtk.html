@@ -39,7 +39,9 @@
       const reader = vtkXMLImageDataReader.newInstance();
 
       reader
-        .setUrl("https://raw.githubusercontent.com/gaiborjosue/API_Images/main/data/test.vti")
+        .setUrl(
+          "https://raw.githubusercontent.com/gaiborjosue/API_Images/main/data/test.vti"
+        )
 
         .then(function () {
           var imageData = reader.getOutputData();

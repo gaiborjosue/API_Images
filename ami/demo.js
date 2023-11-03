@@ -164,14 +164,16 @@ function init() {
 // init threeJS...
 init();
 
-var file = 'test.nii.gz';
+var file = 'https://haehn.github.io/VIZBI/daniel.nii';
 
 
 var loader = new AMI.VolumeLoader(threeD);
 loader.load(file).then(function() {
     var series = loader.data[0].mergeSeries(loader.data)[0];
     
-    console.log(loader.data);
+    window.onload = function () {
+        console.log(loader.data[0].stack[0].rawData);
+    }
     loader.free();
     loader = null;
 
