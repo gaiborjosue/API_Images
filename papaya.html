@@ -1,33 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Papaya Viewer</title>
-  <script type="text/javascript" src="https://cdn.rawgit.com/rii-mango/Papaya/master/release/current/standard/papaya.js"></script>
-  <script type="text/javascript">
-    
-    var params = [];
-    params["images"] = ["https://haehn.github.io/VIZBI/daniel.nii"];
-    
+  <head>
+    <title>Papaya Viewer</title>
+    <script
+      type="text/javascript"
+      src="https://cdn.rawgit.com/rii-mango/Papaya/master/release/current/standard/papaya.js"
+    ></script>
+    <script type="text/javascript">
+      var params = [];
+      params["images"] = ["https://haehn.github.io/VIZBI/daniel.nii"];
+    </script>
+  </head>
+  <body>
+    <div class="papaya" data-params="params"></div>
 
-  </script>
+    <script type="text/javascript">
+      setTimeout(() => {
+        papaya.Container.startPapaya();
 
-  
-</head>
-<body>
-  <div class="papaya" data-params="params"></div>
+        console.log(
+          "Volume Dimensions: ",
+          papayaContainers[0].viewer.screenVolumes[0].volume.header
+            .imageDimensions.xDim,
+          papayaContainers[0].viewer.screenVolumes[0].volume.header
+            .imageDimensions.yDim,
+          papayaContainers[0].viewer.screenVolumes[0].volume.header
+            .imageDimensions.zDim
+        );
 
-  <script type="text/javascript">
+        console.log(
+          "Full Volume (flattened): ",
+          papayaContainers[0].viewer.screenVolumes[0].volume.imageData.data
+        );
 
-    window.onload = (event) => {
-      papaya.Container.startPapaya()
-      console.log("Dimensions: ", papayaContainers[0].viewer.screenVolumes[0].volume.header.imageDimensions.xDim, papayaContainers[0].viewer.screenVolumes[0].volume.header.imageDimensions.yDim, papayaContainers[0].viewer.screenVolumes[0].volume.header.imageDimensions.zDim)
+        console.log("Full Volume (3D): %c not yet working", "color:red");
 
-      console.log("Full Volume (flattened): ", papayaContainers[0].viewer.screenVolumes[0].volume.imageData.data)
+        console.log(
+          "Full Volume (3D): ",
+          papayaContainers[0].viewer.screenVolumes[0].volume.getVoxelAtIndex(
+            1000,
+            1000,
+            1000
+          )
+        );
 
-      console.log("Full Volume (3D): ", papayaContainers[0].viewer.screenVolumes[0].volume.imageData.data)
-    };
-      
-  </script>
+        // Volume pixel access
+        console.log(
+          "Volume pixel access: ",
+          papayaContainers[0].viewer.screenVolumes[0].volume.imageData
+            .data[1000]
+        );
 
-</body>
+        console.log("Subvolume access: %c not yet working", "color:red");
+      }, 2000);
+    </script>
+  </body>
 </html>
