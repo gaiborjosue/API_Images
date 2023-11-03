@@ -35,15 +35,6 @@
 
         console.log("Full Volume (3D): %c not yet working", "color:red");
 
-        console.log(
-          "Full Volume (3D): ",
-          papayaContainers[0].viewer.screenVolumes[0].volume.getVoxelAtIndex(
-            1000,
-            1000,
-            1000
-          )
-        );
-
         // Volume pixel access
         console.log(
           "Volume pixel access: ",
@@ -52,6 +43,15 @@
         );
 
         console.log("Subvolume access: %c not yet working", "color:red");
+
+        console.log(
+          "Voxel at a certain Index: ",
+          papayaContainers[0].viewer.screenVolumes[0].volume.getVoxelAtIndex(
+            1000,
+            1000,
+            1000
+          )
+        );
       }, 2000);
     </script>
   </body>
