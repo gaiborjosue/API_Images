@@ -41,7 +41,10 @@
           papayaContainers[0].viewer.screenVolumes[0].volume.getVoxelAtCoordinate(1000, 1000, 1000)
         );
 
-        console.log("Subvolume access: %c not yet working", "color:red");
+        // Slice access
+        console.log("Single Slice Access: ", papayaContainers[0].viewer.screenVolumes[0].volume.imageData.data.slice(1, 2));
+
+        console.log("2D or 3D Subvolume: ", papayaContainers[0].viewer.screenVolumes[0].volume.imageData.data.slice(0, 20));
       }, 2000);
     </script>
   </body>
