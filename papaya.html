@@ -37,21 +37,11 @@
 
         // Volume pixel access
         console.log(
-          "Volume pixel access: ",
-          papayaContainers[0].viewer.screenVolumes[0].volume.imageData
-            .data[1000]
+          "XYZ Voxel Access: ",
+          papayaContainers[0].viewer.screenVolumes[0].volume.getVoxelAtCoordinate(1000, 1000, 1000)
         );
 
         console.log("Subvolume access: %c not yet working", "color:red");
-
-        console.log(
-          "Voxel at a certain Index: ",
-          papayaContainers[0].viewer.screenVolumes[0].volume.getVoxelAtIndex(
-            1000,
-            1000,
-            1000
-          )
-        );
       }, 2000);
     </script>
   </body>
