@@ -58,11 +58,17 @@
           // All
           console.log("Full Volume (flattened): ", pixelData);
 
+
           console.log("Full Volume (3D): %c not yet working", "color:red");
 
           console.log(
-            "Volume pixel access: ",
+            "XYZ Voxel Access: ",
             imageData.getPointData().getArrays()[0].getValue(60000)
+          );
+
+          console.log(
+            "Single Slice Access: ",
+            imageData.getPointData().getArrays()[0].getTuple(60000)
           );
 
           console.log("Subvolume access: %c not yet working", "color:red");
