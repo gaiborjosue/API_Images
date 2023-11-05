@@ -3,7 +3,8 @@
   <head>
     <title>DEMO</title>
     <style>
-      html, body {
+      html,
+      body {
         background-color: #000;
         margin: 0;
         padding: 0;
@@ -34,7 +35,7 @@
 
         r.onShowtime = function () {
           v.volumeRendering = true;
-          
+
           console.log("Volume dimensions: ", v.dimensions);
 
           console.log("Full Volume (flattened): ", v.K);
@@ -43,7 +44,7 @@
 
           console.log("XYZ Voxel Access: ", v.image[100][100][100]);
 
-          console.log("Single Slice Access: ", v.image[100][100])
+          console.log("Single Slice Access: ", v.image[100][100]);
 
           console.log("2D or 3D Subvolume:", v.image[100][100].slice(0, 100));
 
