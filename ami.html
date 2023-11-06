@@ -115,6 +115,8 @@
         scene.add(vrHelper);
 
         ready = true;
+
+        console.log("Volume Dimensions: ", loader.data[0].stack[0].dimensionsIJK)
 				
         console.log("Full Volume (flattened): ", loader.data[0].stack[0].frame[0].pixelData);
 
