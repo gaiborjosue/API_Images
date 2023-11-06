@@ -120,14 +120,14 @@
 				
         console.log("Full Volume (flattened): ", loader.data[0].stack[0].frame[0].pixelData);
 
-        // console.log("Frame ", loader.data[0].stack[0].frame);
-
         // Full volume 3d
         console.log('Full Volume (3D): %c not yet working', 'color:red'); 
 
-				console.log("Volume pixel access: ", loader.data[0].stack[0].frame[0].getPixelData(100, 100, 100));
+				console.log("XYZ Voxel Access: ", loader.data[0].stack[0].frame[0].getPixelData(100, 100));
 
-				console.log("Subvolume access: %c not yet working", "color:red");
+        console.log("Single Slice Access: ", loader.data[0].stack[0].frame[0].getPixelData(100, 100));
+
+				console.log("2D or 3D Subvolume: ", loader.data[0].stack[0].frame[0]);
 
       });
       

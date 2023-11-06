@@ -17,7 +17,7 @@
             const image = daikon.Series.parseImage(data);
 
             if (image) {
-              const pixelData = image.getInterpretedData();
+              const pixelData = image.getInterpretedData(true);
 
               console.log('Volume dimensions:', image);
 
@@ -27,7 +27,9 @@
 
               console.log("Volume pixel access: ", pixelData[10000]);
 
-              console.log('Subvolume access: %c not yet working', 'color:red'); 
+              console.log("Single Slice Access: %c not yet working", 'color:red');
+
+              console.log('2D or 3D Subvolume: ', pixelData.slice(0, 100)); 
             }
           });
       }
