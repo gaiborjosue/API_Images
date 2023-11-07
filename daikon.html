@@ -19,7 +19,7 @@
             if (image) {
               const pixelData = image.getInterpretedData(true);
 
-              console.log('Volume dimensions:', image);
+              console.log('Volume dimensions:', image.getRows(), image.getCols());
 
               console.log("Full Volume (flattened): ", pixelData);
 
