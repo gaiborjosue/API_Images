@@ -21,20 +21,21 @@
     <script type="text/javascript">
       window.onload = function () {
         // create a new 3d renderer
-        r = new X.renderer3D();
+        r = new X.renderer2D();
+        r.orientation = 'y';
         r.init();
-
+       
         // New volume
         v = new X.volume();
 
         v.file = "https://haehn.github.io/VIZBI/daniel.nii";
 
-        r.add(v);
+        r.add(v);        
 
         r.render();
 
         r.onShowtime = function () {
-          v.volumeRendering = true;
+          // v.volumeRendering = true;
 
           console.log("Volume dimensions: ", v.dimensions);
 
@@ -48,7 +49,7 @@
 
           console.log("2D or 3D Subvolume:", v.image[100][100].slice(0, 100));
 
-          volume = v;
+          // volume = v;
         };
       };
     </script>
