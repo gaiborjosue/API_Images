@@ -31,7 +31,7 @@
     <div id="container"></div>
 
     <script type="text/javascript">
-
+      var stackHelper;
       // Setup renderer
       const container = document.getElementById('container');
       var renderer = new THREE.WebGLRenderer({
@@ -78,10 +78,9 @@
           const stack = series[0].stack[0];
           loader.free();
 
-          const stackHelper = new AMI.StackHelper(stack);
+          stackHelper = new AMI.StackHelper(stack);
           stackHelper.bbox.visible = false;
           scene.add(stackHelper);
-
           gui(stackHelper);
 
           // center camera and interactor to center of bouding box
@@ -117,7 +116,7 @@
 
           console.log("XYZ Voxel Access: ", loader.data[0].stack[0].frame[0].getPixelData(100, 100));
           
-          console.log("Slice Access: ", loader.data[0].stack[0].frame.at(128));
+          console.log("Slice Access: ", loader.data[0].stack[0].frame.at(stackHelper.index).pixelData);
         })
         .catch(error => {
           window.console.log('oops... something went wrong...');
